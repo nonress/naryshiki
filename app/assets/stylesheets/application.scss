@@ -17,12 +17,17 @@ strong{
 //header
 
 header{
-  color:white;
   .navbar{
     padding:30px;
   }
 }
 
+.nav-link {
+  color:black;
+  &:hover{
+    color:rgb(22,116,76);
+  }
+}
 #logo{
   float:left;
   padding:10px
