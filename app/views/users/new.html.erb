@@ -1,2 +1,31 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title,'signup')%>
+<div class="users-show">
+  <h1 class="center">新規登録</h1>
+
+  <div class= "form-group">
+      <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages'%>
+
+        <%= f.label :name,"アカウント名" %>
+        <%= f.text_field :name, class:' form-control' %>
+
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.text_field :email, class:'form-control' %>
+
+        <%= f.label :coname, "成式会社名" %>
+        <%= f.text_field :coname, class:'form-control' %>
+
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password, class:'form-control' %>
+
+        <%= f.label :password_confirmation,"パスワードをもう一度入力してください" %>
+        <%= f.password_field :password_confirmation, class:'form-control' %>
+
+        <%= f.submit "新規登録", class: "btn btn-primary mb-2" %>
+      <% end %>
+  </div>
+</div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
