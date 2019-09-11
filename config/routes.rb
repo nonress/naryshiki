@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root 'basic_pages#home'
-  get 'basic_pages/home'
-  get 'basic_pages/help'
+  get '/signup', to: 'users#new'
+  resources :users
 end
