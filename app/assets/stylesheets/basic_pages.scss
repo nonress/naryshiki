@@ -1,3 +1,37 @@
-// Place all the styles related to the BasicPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.copy span{
+  border-bottom: solid 4px rgb(22,116,76);
+  letter-spacing:0.2em;
+  line-height:2;
+}
+
+.about_text{
+  font-size:20px;
+  letter-spacing:0.6em;
+  line-height:2;
+  font-weight:bold;
+  margin:40px 0;
+}
+
+//column
+
+.column{
+  background-color:white;
+  display:inline-block;
+  width:28%;
+  margin: 0 10px;
+  padding:40px 10px;
+
+}
+
+.column_title{
+  font-size:16px;
+  margin:20px 10px;
+  line-height:2;
+  letter-spacing:0.08em;
+}
+
+.column_text{
+  font-size:13px;
+  line-height:1.8;
+  letter-spacing:0.04em;
+}

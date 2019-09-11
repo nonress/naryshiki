@@ -1,4 +1,22 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which
+ * will include all the files listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets,
+ * vendor/assets/stylesheets, or vendor/assets/stylesheets of plugins, if any,
+ * can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear
+ * at the bottom of the compiled file so the styles you add here take
+ * precedence over styles defined in any styles defined in the other CSS/SCSS
+ * files in this directory. It is generally better to create a new file per
+ * style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
 @import 'bootstrap';
+
 
 body{
   padding-top:130px;
@@ -12,25 +30,6 @@ body{
 }
 strong{
   border-bottom:solid 4px rgb(22,116,76);
-}
-
-//header
-
-header{
-  .navbar{
-    padding:30px;
-  }
-}
-
-.nav-link {
-  color:black;
-  &:hover{
-    color:rgb(22,116,76);
-  }
-}
-#logo{
-  float:left;
-  padding:10px
 }
 
 //main
@@ -50,54 +49,4 @@ header{
 
 .btn-main{
   margin-top:60px;
-}
-
-.copy span{
-  border-bottom: solid 4px rgb(22,116,76);
-  letter-spacing:0.2em;
-  line-height:2;
-}
-
-.about_text{
-  font-size:20px;
-  letter-spacing:0.6em;
-  line-height:2;
-  font-weight:bold;
-  margin:40px 0;
-}
-
-//column
-
-.column{
-  background-color:white;
-  display:inline-block;
-  width:28%;
-  margin: 0 10px;
-  padding:40px 10px;
-
-}
-
-.column_title{
-  font-size:16px;
-  margin:20px 10px;
-  line-height:2;
-  letter-spacing:0.08em;
-}
-
-.column_text{
-  font-size:13px;
-  line-height:1.8;
-  letter-spacing:0.04em;
-}
-//footer
-.fixed-bottom{
-  ul{
-    float:right;
-    margin:30px;
-
-    .f-list{
-      list-style:none;
-      display:inline-block;
-    }
-  }
 }

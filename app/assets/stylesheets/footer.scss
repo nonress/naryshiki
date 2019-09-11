@@ -1,0 +1,11 @@
+.fixed-bottom{
+  ul{
+    float:right;
+    margin:30px;
+
+    .f-list{
+      list-style:none;
+      display:inline-block;
+    }
+  }
+}
