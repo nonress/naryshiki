@@ -1,1 +1,6 @@
-<%= @user.coname %><%= @user.name%>
+<% provide(:title, @user.name) %>
+<div id="user">
+  <%= gravatar_for @user %>
+  <p>成式会社 <%= @user.coname %> 代表取締役 <%= @user.name %></p>
+  <span>nani</span>
+</div>
