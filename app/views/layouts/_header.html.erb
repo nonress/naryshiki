@@ -3,7 +3,31 @@
     <%= link_to root_path, id: 'logo-icon' do %><%= image_tag 'topicon_naryshiki.png', size: '250x100' %><% end %>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
-      <li class="nav-item"><%= link_to "Login", login_path, class: "nav-link" %></li>
+      <% if logged_in? %>
+        <li class='nav-item'><%= link_to 'Users', "#", class:'nav-link' %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Account<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Settings", '#' %></li>
+              <li class="divider"></li>
+              <li class='nav-item'><%= link_to 'Log out', logout_path, class:'nav-link',method: :delete %></li>
+            </ul>
+          </li>
+        </li>
+        <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+      <% else %>
+        <li class="nav-item"><%= link_to "Log in", login_path, class: "nav-link" %></li>
+      <% end %>
     </ul>
   </nav>
 </header>
