@@ -3,11 +3,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:sessionss][:email])
-    if @user.autenticate(params[:sessionss][:password])
+    user = User.find_by(email: params[:session][:email])
+    if user && user.authenticate(params[:session][:password])
 
     else
-      flash[:danger] = 'メールアドレスもしくはパスワードが間違っています'
+      flash.now[:danger] = 'メールアドレスもしくはパスワードが間違っています'
       render 'new'
     end
   end
