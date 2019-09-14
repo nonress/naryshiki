@@ -13,6 +13,11 @@
         <%= f.label :password, "パスワード" %>
         <%= f.password_field :password, class:'form-control' %>
 
+        <%= f.label :remember_me, class: 'check inline' do %>
+          <%= f.check_box :remember_me %>
+          <span>一定期間ログインを自動化したい場合はチェック</span>
+        <% end %>
+
         <%= f.submit "ログイン", class: "btn btn-primary mb-2" %>
       <% end %>
   </div>
