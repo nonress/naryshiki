@@ -3,3 +3,9 @@ michael:
   email: michael@example.com
   coname: foobar
   password_digest: <%= User.digest('password') %>
+
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  coname: hogehoge
+  password_digest: <%= User.digest('password') %>

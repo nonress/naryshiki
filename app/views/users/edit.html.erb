@@ -1,7 +1,7 @@
-<% provide(:title,'signup')%>
+<% provide(:title,'edit')%>
 <div class="center jumbotron">
   <div class="form-template">
-    <h1 class="center">新規登録</h1>
+    <h1 class="center">編集</h1>
 
     <div class= "form-group">
         <%= form_for(@user) do |f| %>
@@ -22,7 +22,7 @@
           <%= f.label :password_confirmation,"パスワードをもう一度入力してください" %>
           <%= f.password_field :password_confirmation, class:'form-control' %>
 
-          <%= f.submit "新規登録", class: "btn btn-primary mb-2" %>
+          <%= f.submit "完了", class: "btn btn-primary mb-2" %>
         <% end %>
     </div>
   </div>
