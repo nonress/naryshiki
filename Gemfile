@@ -5,6 +5,7 @@ ruby '2.6.3'
 
 gem 'rails', '~> 6.0.0'
 gem 'bcrypt', '~> 3.1.7'
+gem 'faker'
 gem 'puma', '~> 3.11'
 gem 'sassc-rails'
 gem 'react-rails'
