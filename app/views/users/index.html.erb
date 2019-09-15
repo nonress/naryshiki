@@ -1,11 +1,10 @@
 <% provide(:titile, "All users")%>
   <h1 class="center">All users</h1>
+
+  <%= will_paginate %>
+
   <ul class="users form-template">
-    <% @users.each do |user| %>
-      <li>
-        <%= gravatar_for user, size: 50 %>
-        <p> 成式会社 <%= link_to user.coname, '#' %> 代表取締役 <%= link_to user.name, user %>
-        </p>
-      </li>
-    <% end %>
+    <%= render @users %>
   </ul>
+
+  <%= will_paginate %>
