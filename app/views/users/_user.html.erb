@@ -1,4 +1,7 @@
 <li>
   <%= gravatar_for user, size: 50 %>
   <p> 成式会社 <%= link_to user.coname, '#' %> 代表取締役 <%= link_to user.name, user %></p>
+  <% if current_user.admin? && !current_user?(user)%>
+    | <%= link_to 'delete' ,user, method: :delete, data: { confirm: "You sure?" }%>
+  <% end %>
 </li>
