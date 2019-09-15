@@ -1,0 +1,6 @@
+成式会社 <%= @user.coname %> 代表取締役 <%= @user.name %> 様,
+
+ご登録ありがとうございます。
+
+アカウントを有効化するために下記のリンクよりお進み下さい。
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
