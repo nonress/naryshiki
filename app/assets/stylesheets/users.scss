@@ -27,10 +27,15 @@
 }
 
 .pagination{
-  padding-left:20px;
 
-  li{
+  a{
     padding:5px;
+  }
+  span{
+    padding:5px;
+  }
+  em{
+    padding:5px
   }
 }
 
