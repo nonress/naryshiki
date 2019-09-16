@@ -1,0 +1,16 @@
+<% provide(:title,'password_reset')%>
+<div class="center jumbotron">
+  <div class="form-template">
+    <h1 class="center">パスワード再設定</h1>
+
+    <div class= "form-group">
+        <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+
+          <%= f.label :email, "メールアドレス" %>
+          <%= f.text_field :email, class:'form-control' %>
+
+          <%= f.submit "パスワード再設定", class: "btn btn-primary mb-2" %>
+        <% end %>
+    </div>
+  </div>
+</div>
