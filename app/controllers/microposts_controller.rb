@@ -5,10 +5,10 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      flash[:success] = "投稿が完了"
+      flash[:success] = "投稿が完了しました"
       redirect_to root_path
     else
-      @feed_items = current_user
+      @feed_items = []
       render 'basic_pages/home'
     end
   end
@@ -22,7 +22,7 @@ class MicropostsController < ApplicationController
   private
 
     def micropost_params
-      params.require(:micropost).permit(:content)
+      params.require(:micropost).permit(:content, :picture)
     end
 
     def correct_user
