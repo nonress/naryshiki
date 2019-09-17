@@ -1,5 +1,12 @@
 <% provide(:title, @user.name) %>
 <div class="form-template">
-  <div class="gravatar"><%= gravatar_for @user %></div>
-  <p>成式会社 <%= @user.coname %> 代表取締役 <%= @user.name %></p>
+  <article class="profile">
+    <div class="gravatar"><%= gravatar_for @user %></div>
+    <p>成式会社 <%= @user.coname %> 代表取締役 <%= @user.name %></p>
+  </article>
+    <% if @user.microposts.any? %>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+    <% end %>
 </div>
