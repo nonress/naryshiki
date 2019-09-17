@@ -14,7 +14,7 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    @micropsot.destroy
+    @micropost.destroy
     flash[:success] = "投稿を削除しました"
     redirect_to request.referrer || root_path
   end
