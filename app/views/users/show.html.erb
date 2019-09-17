@@ -4,6 +4,10 @@
     <div class="gravatar"><%= gravatar_for @user %></div>
     <p>成式会社 <%= @user.coname %> 代表取締役 <%= @user.name %></p>
   </article>
+  <section class="stats">
+      <%= render 'shared/stats' %>
+  </section>
+  <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <ol class="microposts">
         <%= render @microposts %>
