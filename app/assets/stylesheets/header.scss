@@ -1,11 +1,11 @@
 header{
-  .navbar{
+  .navbar-loggedin{
     padding:30px 30px 0 30px;
   }
 }
 
 .nav-link {
-  color:black;
+  color:green;
   &:hover{
     color:rgb(22,116,76);
   }

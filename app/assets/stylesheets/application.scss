@@ -16,6 +16,7 @@
  *= require_self
  */
 
+
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -31,8 +32,15 @@
   @include box_sizing;
 }
 
-body{
-  padding-top:130px;
+a{
+  color:green;
+  &:hover{
+    color:green;
+  }
+}
+
+.padding-top{
+  padding-top:80px;
 }
 
 .center{
@@ -48,6 +56,7 @@ strong{
 //main
 
 .jumbotron{
+  padding-top: 130px;
   background-color: #e7fee0;
   margin-bottom:100px;
 }

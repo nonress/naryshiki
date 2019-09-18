@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if user.activated?
         log_in user
         params[:session][:remember_me] =='1' ? remember(user) : forget(user)
-        redirect_back_or user
+        redirect_back_or root_path
       else
         message  = "アカウント有効化が未完了です。メールを確認しアカウント有効化を行なってください。"
         flash[:warning] = message

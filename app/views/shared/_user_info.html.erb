@@ -1,5 +1,7 @@
 <div class="form-template">
   <%= link_to gravatar_for(current_user), current_user %>
-  <span class="name">成式会社 <%= link_to current_user.coname, '#' %> 代表取締役 <%= link_to current_user.name, current_user %></span>
-  <span class="microposts-count"><%= pluralize(current_user.microposts.count, "micropost") %></span>
+  <% if @user %>
+    <span class="name">成式会社 <%= link_to current_user.coname, '#' %> 代表取締役 <%= link_to current_user.name, current_user %></span>
+    <span class="microposts-count"><%= pluralize(current_user.microposts.count, "micropost") %></span>
+  <% end %>
 </div>

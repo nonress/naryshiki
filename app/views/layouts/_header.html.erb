@@ -1,23 +1,27 @@
 <header>
-  <nav class="navbar navbar-expand fixed-top">
-    <%= link_to root_path, id: 'logo-icon' do %><%= image_tag 'topicon_naryshiki.png', size: '250x100' %><% end %>
+  <% if logged_in? %>
+  <nav class="navbar navbar-expand fixed-top" style="background-color: #e7fee0;">
+    <%= link_to root_path, id: 'logo-icon' do %><%= image_tag 'icon_naryshiki.png', size: '40x40' %><% end %>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
-      <% if logged_in? %>
-        <li class='nav-item'><%= link_to 'Users', users_path, class:'nav-link' %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Account<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li class='nav-item'><%= link_to 'プロフィール',current_user, class:'nav-link' %></li>
-              <li class='nav-item'><%= link_to '設定', edit_user_path(current_user), class:'nav-link' %></li>
-              <li class="divider"></li>
-              <li class='nav-item'><%= link_to 'ログアウト', logout_path, class:'nav-link',method: :delete %></li>
-            </ul>
-          </li>
+      <li class='nav-item'><%= link_to 'Users', users_path, class:'nav-link' %></li>
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Account<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class='nav-item'><%= link_to 'プロフィール',current_user, class:'nav-link' %></li>
+            <li class='nav-item'><%= link_to '設定', edit_user_path(current_user), class:'nav-link' %></li>
+            <li class="divider"></li>
+            <li class='nav-item'><%= link_to 'ログアウト', logout_path, class:'nav-link',method: :delete %></li>
+          </ul>
         </li>
-      <% else %>
-        <li class="nav-item"><%= link_to "ログイン", login_path, class: "nav-link" %></li>
-      <% end %>
+      </li>
     </ul>
   </nav>
+  <% else %>
+  <nav class="navbar fixed-top navbar-loggedin">
+      <%= link_to root_path, id: 'logo-icon' do %><%= image_tag 'topicon_naryshiki.png', size: '250x100' %><% end %>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><%= link_to "ログイン", login_path, class: "nav-link" %></li>
+    </ul>
+  </nav>
+  <% end %>
 </header>
