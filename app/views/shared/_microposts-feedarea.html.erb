@@ -1,14 +1,15 @@
 <div class="form-group">
-  <%= link_to gravatar_for(current_user), current_user, class:'my-icon' %>
+  <%= link_to gravatar_for(current_user, size:50), current_user, class:'my-icon' %>
   <%= form_for(@micropost) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <%= f.text_area :content, class: 'form-control-plaintext', placeholder: "今、何してる？" %>
-    <div class="microposts-var">
-      <%= f.submit "投稿", class: "btn btn-primary" %>
-      <span class="picture">
-        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class:'image-filed' %>
-      </span>
-    </div>
+      <label>
+        <span class="picture">
+          <i class="far fa-lg pointer fa-images"></i>
+          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class:'image-filed' %>
+          <%= f.submit "投稿", class: "btn btn-primary" %>
+        </span>
+      </label>
   <% end %>
 </div>
 
