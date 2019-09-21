@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
 before_action :logged_in_user
 
   def show
-    @user = current_user
+    @user = User.find( params[:id])
   end
 
   def edit
