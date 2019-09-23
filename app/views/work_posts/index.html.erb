@@ -1,7 +1,23 @@
 <%= provide(:title, '案件一覧') %>
 
-<h1>案件一覧</h1>
+<h1 class="center">案件一覧</h1>
 
-<ul class="form-template">
-  <%= render @workposts %>
-</ul>
+  <p class='center'>案件の掲載は<%= link_to 'こちら', new_work_post_path %></p>
+
+  <%= will_paginate @workposts %>
+
+  <div class="container">
+    <% @workposts.each do |workpost| %>
+      <div class="row">
+        <div class="card col" style="width: 18rem;">
+          <div class="card-body">
+             成式会社 <%= link_to workpost.user.coname, '#' %><br>
+             <%= workpost.title %>
+            <%= link_to '詳細', work_post_path(workpost), class: 'btn' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= will_paginate @workposts %>
+

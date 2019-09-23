@@ -12,16 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_09_23_083101) do
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "engineer"
-    t.string "writer"
-    t.string "influencer"
-    t.string "creator"
-  end
-
   create_table "microposts", force: :cascade do |t|
     t.text "content"
     t.integer "user_id"

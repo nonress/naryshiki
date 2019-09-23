@@ -1,6 +1,6 @@
 User.create!(name:  "enui",
              email: "enui@naryshiki.com",
-             coname: 'enui551',
+             coname: 'nonress',
              password:              "hogehoge",
              password_confirmation: "hogehoge",
              admin: true,
@@ -33,3 +33,21 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+user.work_posts.create!(title: 'アプリ開発',
+                 body: 'noname',
+                 skill: 'ruby on rails',
+                 reward: 20000)
+
+10.times do |n|
+  title = Faker::Lorem.sentence
+  body = Faker::Lorem.sentences
+  skill = Faker::Food
+  reward = Faker::Number.number(digits: 6)
+  users.each do |user|
+    user.work_posts.create!(title: title,
+                  body: body,
+                  skill: skill,
+                  reward: reward)
+  end
+end
