@@ -1,0 +1,12 @@
+<%= provide(:title, @workpost.title)%>
+
+<div class="jumbotron">
+  <h1 class="center">案件詳細</h1>
+  <div class="workposts">
+    <h2>案件名:<%= @workpost.title %></h2>
+    <h4 class="pt30">発注: 成式会社 <%= link_to @workpost.user.coname %></h4>
+    案件詳細:<br><%= @workpost.body %>
+    <h5 class="pt30">求めるスキル:<%= @workpost.skill %></h5>
+    <h4 class="pt30">報酬: <%= @workpost.reward %>成</h4>
+  </div>
+</div>

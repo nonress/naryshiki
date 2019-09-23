@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_19_172447) do
+ActiveRecord::Schema.define(version: 2019_09_23_083101) do
 
-  create_table "companies", force: :cascade do |t|
-    t.integer "user_id", null: false
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_companies_on_user_id"
+    t.string "engineer"
+    t.string "writer"
+    t.string "influencer"
+    t.string "creator"
   end
 
   create_table "microposts", force: :cascade do |t|
@@ -56,6 +59,17 @@ ActiveRecord::Schema.define(version: 2019_09_19_172447) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "companies", "users"
+  create_table "work_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "reward"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "skill"
+    t.index ["user_id"], name: "index_work_posts_on_user_id"
+  end
+
   add_foreign_key "microposts", "users"
+  add_foreign_key "work_posts", "users"
 end

@@ -1,0 +1,23 @@
+<% provide(:title, '案件投稿')%>
+
+<div class="jumbotron">
+  <h1 class='center'>案件投稿</h1>
+  <%= form_for @workpost do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.label :title, '案件名', class:'label' %>
+    <%= f.text_field :title, class: 'workpost workpost-field' %><br>
+
+    <%= f.label :body, '案件内容', class:'label' %>
+    <%= f.text_area :body, class: 'workpost workpost-area' %><br>
+
+    <%= f.label :skill, '求めるスキル', class:'label' %>
+    <%= f.text_field :skill, class: 'workpost workpost-field' %><br>
+
+    <%= f.label :reward, '報酬', class:'label' %>
+    <%= f.number_field :reward, class: 'workpost workpost-field' %><br>
+
+    <center><%= f.submit '投稿', class:'btn btn-primary' %></center>
+
+  <% end %>
+</div>
