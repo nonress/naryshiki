@@ -20,12 +20,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem "rspec", ">= 3.0.0"
 gem 'actiontext'
 gem 'image_processing', '~> 1.2'
+gem 'mysql2'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  gem 'mysql2'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
