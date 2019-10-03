@@ -31,6 +31,6 @@ class WorkPostsController < ApplicationController
   private
 
     def workpost_params
-      params.require(:work_post).permit(:title, :body, :skill, :reward)
+      params.require(:work_post).permit(:title, :body, :skill, :reward, :category_ids)
     end
 end

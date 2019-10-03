@@ -7,6 +7,13 @@
     <%= f.label :title, '案件名', class:'label' %>
     <%= f.text_field :title, class: 'workpost workpost-field' %><br>
 
+    <%= f.label :category, 'カテゴリー', class:'label' %>
+    <%= f.collection_select(:category_ids, Category.all, :id, :name) do |category| %>
+      <%= category.label do %>
+        <%= category.name %>
+      <% end %>
+    <% end %><br>
+
     <%= f.label :body, '案件内容', class:'label' %>
     <%= f.rich_text_area :body %><br>
 
