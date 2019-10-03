@@ -39,6 +39,13 @@ user.work_posts.create!(title: 'アプリ開発',
                  skill: 'ruby on rails',
                  reward: 20000)
 
+category1 = Category.create(name: 'エンジニア')
+category2 = Category.create(name: 'インフルエンサー')
+category3 = Category.create(name: 'ライター')
+category4 = Category.create(name: 'クリエイター')
+category5 = Category.create(name: '営業')
+category6 = Category.create(name: '事務')
+
 10.times do |n|
   title = Faker::Lorem.sentence
   body = Faker::Lorem.sentences
@@ -49,5 +56,6 @@ user.work_posts.create!(title: 'アプリ開発',
                   body: body,
                   skill: skill,
                   reward: reward)
+
   end
 end
