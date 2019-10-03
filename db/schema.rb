@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_161348) do
+ActiveRecord::Schema.define(version: 2019_10_03_213524) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -87,8 +87,12 @@ ActiveRecord::Schema.define(version: 2019_09_24_161348) do
   end
 
   create_table "work_post_category_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "work_post_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_work_post_category_relations_on_category_id"
+    t.index ["work_post_id"], name: "index_work_post_category_relations_on_work_post_id"
   end
 
   create_table "work_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -104,5 +108,7 @@ ActiveRecord::Schema.define(version: 2019_09_24_161348) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "microposts", "users"
+  add_foreign_key "work_post_category_relations", "categories"
+  add_foreign_key "work_post_category_relations", "work_posts"
   add_foreign_key "work_posts", "users"
 end

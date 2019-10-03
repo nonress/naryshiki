@@ -15,7 +15,7 @@ class WorkPostsController < ApplicationController
   end
 
   def create
-    @workpost = current_user.work_posts.build(workpost_params)
+    @workpost = current_user.work_posts.new(workpost_params)
     if @workpost.save
       flash[:success] = '案件の投稿が完了しました'
       redirect_to work_post_path(@workpost)
