@@ -17,7 +17,6 @@ gem 'webpacker'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem "rspec", ">= 3.0.0"
 gem 'actiontext'
 gem 'image_processing', '~> 1.2'
 gem 'mysql2'
@@ -27,10 +26,12 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rspec-rails', '~> 3.6.0'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
