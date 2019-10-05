@@ -16,7 +16,7 @@ module Naryshiki
     # the framework and any gems in your application.
     config.action_view.embed_authenticity_token_in_remote_forms = true
 
-    config generators do |g|
+    config.generators do |g|
       g.test_framework :rspec,
         #テストベータベースにレコードを作成するファイルの作成をスキップする
         fixtures: false,
