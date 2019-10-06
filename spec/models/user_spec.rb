@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+describe User do
 
-   it 'has a valid factory' do
-     expect(FactoryBot.build(:user)).to be_valid
-   end
+  it 'has a valid factory' do
+    expect(FactoryBot.build(:user)).to be_valid
+  end
 
   it 'is invalid without a name' do
     user =FactoryBot.build(:user,name: nil)
@@ -25,19 +25,15 @@ RSpec.describe User, type: :model do
   end
 
   it 'is invalid with a duplicate email address' do
-    User.create(
-      name: 'enui',
-      coname: 'nonress',
-      email: 'test@naryshiki.com',
-      password: 'hogehoge',
-    )
-    user = User.new(
-      name: 'enui3',
-      coname: 'nonresses',
-      email: 'test@naryshiki.com',
-      password: 'hogehgoe',
-    )
+    FactoryBot.create(:user, email: 'nonress@naryshiki.com')
+    user = FactoryBot.build(:user, email: 'nonress@naryshiki.com')
     user.valid?
     expect(user.errors[:email]).to include("has already been taken")
+  end
+
+  it 'does something with multiple users' do
+    user1 = FactoryBot.create(:user)
+    user2 = FactoryBot.create(:user)
+    expect(true).to be_truthy
   end
 end
