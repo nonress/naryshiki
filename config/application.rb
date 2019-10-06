@@ -18,8 +18,6 @@ module Naryshiki
 
     config.generators do |g|
       g.test_framework :rspec,
-        #テストベータベースにレコードを作成するファイルの作成をスキップする
-        fixtures: false,
         view_specs: false,
         helper_specs: false,
         routing_specs: false
