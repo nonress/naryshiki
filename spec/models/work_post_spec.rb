@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe WorkPost, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  let(:user) { FactoryBot.create(:user) }
+  let(:workpost) { FactoryBot.create(:workpost) }
+
+  it 'is valid workpost' do
+
+  end
 end
