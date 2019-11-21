@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
   root 'basic_pages#home'
@@ -13,8 +14,8 @@ Rails.application.routes.draw do
     end
   end
   resources :account_activations, only: [:edit]
-  resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :microposts, only: [:create, :destroy]
-  resources :relationships,       only: [:create, :destroy]
+  resources :password_resets, only: %i[new create edit update]
+  resources :microposts, only: %i[create destroy]
+  resources :relationships, only: %i[create destroy]
   resources :work_posts
 end

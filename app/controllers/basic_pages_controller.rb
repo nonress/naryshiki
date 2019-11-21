@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BasicPagesController < ApplicationController
   def home
     if logged_in?
@@ -6,7 +8,5 @@ class BasicPagesController < ApplicationController
     end
   end
 
-  def help
-
-  end
+  def help; end
 end

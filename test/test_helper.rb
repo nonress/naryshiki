@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
-require "minitest/reporters"
+require 'minitest/reporters'
 Minitest::Reporters.use!
 
 class ActiveSupport::TestCase
@@ -20,8 +22,7 @@ class ActiveSupport::TestCase
   end
 end
 
-  class ActionDispatch::IntegrationTest
-
+class ActionDispatch::IntegrationTest
   def log_in_as(user, password: 'password', remember_me: '1')
     post login_path, params: { session: { email: user.email,
                                           coname: user.coname,

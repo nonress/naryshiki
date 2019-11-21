@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :logged_in_user, only: %i[index edit update destroy following followers]
+  before_action :correct_user,   only: %i[edit update]
   before_action :admin_user, only: :destroy
 
   def index
@@ -44,7 +46,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "ユーザーを削除しました"
+    flash[:success] = 'ユーザーを削除しました'
     redirect_to users_url
   end
 
@@ -56,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @title = "Followers"
+    @title = 'Followers'
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
@@ -64,16 +66,16 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:name,:email,:coname, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :coname, :password, :password_confirmation)
+  end
 
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
 
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
+  end
 end
