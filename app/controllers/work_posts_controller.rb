@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class WorkPostsController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user, only: :destroy
@@ -26,11 +24,13 @@ class WorkPostsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+
+  end
 
   private
 
-  def workpost_params
-    params.require(:work_post).permit(:title, :body, :skill, :reward, :category_ids)
-  end
+    def workpost_params
+      params.require(:work_post).permit(:title, :body, :skill, :reward, :category_ids)
+    end
 end

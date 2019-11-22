@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'test_helper'
 
 class BasicPagesControllerTest < ActionDispatch::IntegrationTest
@@ -7,9 +5,9 @@ class BasicPagesControllerTest < ActionDispatch::IntegrationTest
     @base_title = 'なりしき'
   end
 
-  test 'should get home' do
+  test "should get home" do
     get root_path
     assert_response :success
-    assert_select 'title', @base_title
+    assert_select "title", @base_title
   end
 end
