@@ -48,10 +48,10 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-  def following
-    @title = 'Following'
+  def followings
+    @title = 'Followings'
     @user = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page])
+    @users = @user.followings.paginate(page: params[:page])
     render 'show_follow'
   end
 
