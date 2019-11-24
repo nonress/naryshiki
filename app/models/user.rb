@@ -7,16 +7,16 @@ class User < ApplicationRecord
      source: :followed
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :followers,
-    through: :passive_relationships,
-     source: :follower
+           through: :passive_relationships,
+           source: :follower
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest
-  validates :name, presence: true, length: {maximum: 50}
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, length: {maximum: 255}, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false }
+  validates :name, presence: true, length: { maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 },allow_nil: true
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :coname,   presence: true, length: { maximum: 20 }
 
   def self.digest(string)
@@ -34,9 +34,10 @@ class User < ApplicationRecord
     update(:remember_digest, User.digest(remember_token))
   end
 
-  def authenticated?(attribute,token)
+  def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
+
     BCrypt::Password.new(digest).is_password?(token)
   end
 
@@ -68,7 +69,7 @@ class User < ApplicationRecord
   end
 
   def feed
-    Micropost.where("user_id IN (:following_ids)OR user_id = :user_id", following_ids: following_ids, user_id: id).microposts_scope
+    Micropost.where('user_id IN (:following_ids)OR user_id = :user_id', following_ids: following_ids, user_id: id).microposts_scope
   end
 
   def follow(other_user)
@@ -85,12 +86,12 @@ class User < ApplicationRecord
 
   private
 
-    def downcase_email
-      self.email = email.downcase
-    end
+  def downcase_email
+    self.email = email.downcase
+  end
 
-    def create_activation_digest
-      self.activation_token = User.new_token
-      self.activation_digest = User.digest(activation_token)
-    end
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
 end

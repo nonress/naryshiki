@@ -6,7 +6,5 @@ class BasicPagesController < ApplicationController
     end
   end
 
-  def help
-
-  end
+  def help; end
 end
