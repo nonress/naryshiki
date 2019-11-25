@@ -31,7 +31,7 @@ class User < ApplicationRecord
 
   def remembers
     self.remember_token = User.new_token
-    update(:remember_digest, User.digest(remember_token))
+    update(remember_digest: User.digest(remember_token))
   end
 
   def authenticated?(attribute, token)
@@ -42,12 +42,12 @@ class User < ApplicationRecord
   end
 
   def forgets
-    update(:remember_digest, nil)
+    update(remember_digest: nil)
   end
 
   def activate
-    update(:activated, true)
-    update(:activated_at, Time.zone.now)
+    update(activated: true)
+    update(activated_at: Time.zone.now)
   end
 
   def send_activation_email
@@ -56,8 +56,8 @@ class User < ApplicationRecord
 
   def create_reset_digest
     self.reset_token = User.new_token
-    update(:reset_digest,  User.digest(reset_token))
-    update(:reset_sent_at, Time.zone.now)
+    update(reset_digest:  User.digest(reset_token))
+    update(reset_sent_at: Time.zone.now)
   end
 
   def send_password_reset_email
