@@ -48,10 +48,6 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'minitest'
-  gem 'minitest-reporters'
-  gem 'guard'
-  gem 'guard-minitest'
   gem 'rails-controller-testing'
 end
 
