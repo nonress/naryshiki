@@ -88,6 +88,10 @@ GEM
     diff-lcs (1.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     dry-inflector (0.2.0)
     erubi (1.9.0)
     excon (0.71.1)
@@ -476,6 +480,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   carrierwave
+  dotenv-rails
   excon (~> 0.71.0)
   factory_bot_rails (~> 5.1.1)
   faker
